@@ -9,7 +9,11 @@ Coloque nesta pasta uma foto (JPG) para cada seção, com exatamente estes nomes
   04-ihm-scada.jpg      Seção 04 · IHM e SCADA
   05-sensores.jpg       Seção 05 · Sensores e Atuadores
   06-equipamentos.jpg   Seção 06 · Equipamentos e Redes
-  07-cad-simu.jpg       Seção 07 · Desenho e Simulação
+  07-catalogo.jpg       Seção 07 · Catálogo de equipamentos
+  08-integracao.jpg     Seção 08 · Integração dos componentes
+  09-cad-simu.jpg       Seção 09 · Desenho e Simulação
+
+A seção 10 (Referências) não usa foto.
 
 Se um arquivo não existir, o site mostra os blocos de cor no lugar.
 Tamanho sugerido: 1200 x 700 px, até ~300 KB cada.

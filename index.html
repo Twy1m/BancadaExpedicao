@@ -32,8 +32,10 @@
           <li><a href="#ihm-scada"><span>04</span> IHM e SCADA</a></li>
           <li><a href="#sensores"><span>05</span> Sensores e Atuadores</a></li>
           <li><a href="#equipamentos"><span>06</span> Equipamentos e Redes</a></li>
-          <li><a href="#cad-simu"><span>07</span> Desenho e Simulação</a></li>
-          <li><a href="#referencias"><span>08</span> Referências</a></li>
+          <li><a href="#catalogo"><span>07</span> Catálogo de equipamentos</a></li>
+          <li><a href="#integracao"><span>08</span> Integração dos componentes</a></li>
+          <li><a href="#cad-simu"><span>09</span> Desenho e Simulação</a></li>
+          <li><a href="#referencias"><span>10</span> Referências</a></li>
         </ol>
       </nav>
     </div>
@@ -505,6 +507,10 @@
         <h2 class="title title--sans">O que compõe a bancada</h2>
         <p class="lead">Os itens a seguir foram identificados nas imagens fornecidas. As descrições apresentam suas funções usuais; valores de tensão, corrente, capacidade, modelo e ligações devem ser confirmados nas etiquetas e nos manuais dos componentes.</p>
 
+        <aside class="note">
+          <p>Procura o modelo exato de cada item? Veja o <a href="#catalogo">catálogo de equipamentos</a>, com o código informado para cada componente.</p>
+        </aside>
+
         <div class="acc">
 <div class="acc__tools"><button class="acc__all" type="button">Abrir todos</button></div>
 <div class="acc__item">
@@ -652,16 +658,315 @@
       </div>
     </section>
 
-    <!-- 07 · DESENHO E SIMULAÇÃO -->
+        <!-- 07 · CATÁLOGO DE EQUIPAMENTOS (complemento da pesquisa) -->
+    <section class="article" id="catalogo">
+      <div class="container">
+        <p class="eyebrow">Complemento <span class="eyebrow__sep">/</span> <strong>07</strong></p>
+
+        <div class="blocks" aria-hidden="true">
+          <span class="blocks__item" style="flex:1.4;background:var(--c-sand)"></span>
+          <span class="blocks__item" style="flex:2;background:var(--c-sage)"></span>
+          <span class="blocks__item" style="flex:1.2;background:var(--c-taupe)"></span>
+          <img class="blocks__photo" src="assets/img/07-catalogo.jpg" alt="Bancada de Automação e Expedição — Catálogo de equipamentos" loading="lazy" onerror="this.remove()">
+        </div>
+        <p class="caption">Catálogo de equipamentos</p>
+
+        <p class="author">Complemento da pesquisa técnica</p>
+        <h2 class="title title--sans">Equipamentos e dispositivos da bancada</h2>
+        <p class="lead">Este complemento reúne os equipamentos informados para a bancada, organizados por função. As descrições apresentam a finalidade técnica geral de cada item; a aplicação exata depende da instalação, do projeto e das orientações dos fabricantes.</p>
+        <p class="lead lead--small"><strong>Organização:</strong> controle e comunicação; alimentação e segurança elétrica; atuadores; pneumática e vácuo; sensores e identificação; medição de energia.</p>
+
+        <p class="hint hint--local"><span class="hint__icon" aria-hidden="true">+</span><span><strong>37 equipamentos em 6 categorias.</strong> Toque em cada categoria para ver os itens e seus modelos.</span></p>
+
+        <div class="search" role="search">
+          <label class="sr-only" for="catalogo-busca">Buscar equipamento por nome ou modelo</label>
+          <input id="catalogo-busca" class="search__input" type="search" placeholder="Buscar por nome ou modelo (ex.: SMC, 6ES7, vacuostato)" autocomplete="off" data-catalog-search>
+          <button class="search__clear" type="button" hidden>Limpar</button>
+        </div>
+        <p class="search__status" aria-live="polite"></p>
+
+        <div class="acc">
+<div class="acc__tools"><button class="acc__all" type="button">Abrir todos</button></div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="true" aria-controls="acc-cat-1"><span class="acc__title">Controle e comunicação industrial</span><span class="acc__count">5</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-cat-1">
+<div class="parts parts--compact">
+<article class="part part--static">
+            <h4 class="part__name">CLP — Siemens SIMATIC S7-1200 CPU 1215C DC/DC/DC</h4>
+            <p class="part__model">Modelo: 6ES7215-1AG40-0XB0</p>
+            <p class="part__text">Executa o programa de automação. Recebe informações dos sensores, processa as condições programadas e comanda motores, válvulas e atuadores.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Módulo mestre IO-Link — Siemens SIMATIC SM 1278 4xIO-Link Master</h4>
+            <p class="part__model">Modelo: 6ES7278-4BD32-0XB0</p>
+            <p class="part__text">Permite a comunicação entre o sistema de automação e dispositivos compatíveis com IO-Link, possibilitando a troca de dados e o diagnóstico dos equipamentos conectados.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">IHM — Siemens SIMATIC KTP700 Basic Touch de 7 polegadas</h4>
+            <p class="part__model">Modelo: 6AV2123-2GB03-0AX0</p>
+            <p class="part__text">Permite ao operador visualizar informações do processo e interagir com a máquina por meio de uma tela. As funções dependem das telas e dos comandos configurados.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Switch Industrial Ethernet — Siemens SCALANCE X005</h4>
+            <p class="part__model">Modelo: 6GK5005-0BA00-1BA2</p>
+            <p class="part__text">Interliga equipamentos compatíveis em uma rede Ethernet industrial. Sua presença, isoladamente, não confirma que toda a rede esteja configurada como PROFINET.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Ponto de acesso/repetidor Wi-Fi — Intelbras IWE 3000</h4>
+            <p class="part__model">Modelo informado: IWE 3000</p>
+            <p class="part__text">Pode ampliar ou retransmitir o sinal de uma rede Wi-Fi, conforme sua configuração. Sua presença não significa que a comunicação industrial seja feita por Wi-Fi.</p>
+          </article>
+</div>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-cat-2"><span class="acc__title">Alimentação, proteção e segurança elétrica</span><span class="acc__count">14</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-cat-2" hidden>
+<div class="parts parts--compact">
+<article class="part part--static">
+            <h4 class="part__name">Fonte de alimentação — Siemens SITOP PSU100L</h4>
+            <p class="part__model">Modelo: 6EP1334-1LB00; 24 Vcc, 10 A conforme a lista fornecida</p>
+            <p class="part__text">Fornece alimentação em corrente contínua de 24 V para circuitos e dispositivos compatíveis, respeitando os limites especificados pelo fabricante.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Relé de segurança — Schneider Electric XPSBAC14AP</h4>
+            <p class="part__model">Modelo: XPSBAC14AP</p>
+            <p class="part__text">Destina-se a funções de segurança em máquinas, trabalhando com dispositivos e circuitos de segurança conforme o projeto e a configuração instalada.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Contator tripolar — Schneider Electric TeSys</h4>
+            <p class="part__model">Modelo: LC1D09BD</p>
+            <p class="part__text">Permite ligar e desligar circuitos elétricos de potência por meio de um comando elétrico, em aplicações compatíveis com suas características nominais.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Bloco de contatos auxiliares — Schneider Electric TeSys</h4>
+            <p class="part__model">Modelo: LADN22</p>
+            <p class="part__text">Acrescenta contatos auxiliares ao conjunto compatível, permitindo funções de sinalização, intertravamento e informação de estado nos circuitos de comando.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Disjuntor termomagnético bipolar — Schneider Electric Easy9</h4>
+            <p class="part__model">Modelo: EZ9F33210; 10 A conforme a lista fornecida</p>
+            <p class="part__text">Protege circuitos contra sobrecorrentes, de acordo com as características e os limites de proteção do dispositivo.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Interruptor diferencial residual (DR) — Schneider Electric Acti9</h4>
+            <p class="part__model">Modelo: A9R74225; bipolar, 25 A, 30 mA conforme a lista fornecida</p>
+            <p class="part__text">Detecta correntes diferenciais residuais e atua conforme suas características nominais, contribuindo para a proteção contra fugas de corrente e choques elétricos.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Chave seccionadora geral — Schneider Electric Vario</h4>
+            <p class="part__model">Modelo: VCF02; 12 A conforme a lista fornecida</p>
+            <p class="part__text">Permite seccionar a alimentação elétrica do circuito, conforme as condições de utilização especificadas pelo fabricante.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Botão de emergência — Schneider Electric Harmony</h4>
+            <p class="part__model">Modelo: XB5AS8444</p>
+            <p class="part__text">É utilizado para solicitar a parada de emergência da máquina. Sua atuação deve estar integrada ao circuito de segurança previsto no projeto.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Botão de reset iluminado — Schneider Electric</h4>
+            <p class="part__model">Modelos informados: ZB5AW363 / ZB5AW0B61</p>
+            <p class="part__text">Permite realizar o comando de rearme previsto na lógica de segurança ou de operação. A iluminação pode indicar um estado definido pelo projeto.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Botão Start verde — Schneider Electric Easy Harmony</h4>
+            <p class="part__model">Modelo: XA2EA31</p>
+            <p class="part__text">Envia um comando de partida ao sistema de controle, desde que as condições de operação permitam o início do processo.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Botão Stop vermelho — Schneider Electric Easy Harmony</h4>
+            <p class="part__model">Modelo: XA2EA42</p>
+            <p class="part__text">Envia um comando de parada operacional ao sistema de controle. Não substitui a função específica do botão de emergência.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Chave comutadora de duas posições fixas — Schneider Electric Easy Harmony</h4>
+            <p class="part__model">Modelo: XA2ED21</p>
+            <p class="part__text">Permite selecionar entre duas posições de comando, conforme a função atribuída à chave no programa de automação.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Sinaleiro LED verde — Schneider Electric Easy Harmony</h4>
+            <p class="part__model">Modelo: XA2EVB3LC</p>
+            <p class="part__text">Pode indicar que a condição de segurança está liberada, se essa sinalização estiver associada corretamente ao circuito.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Sinaleiro LED vermelho — Schneider Electric Easy Harmony</h4>
+            <p class="part__model">Modelo: XA2EVB4LC</p>
+            <p class="part__text">Pode indicar um estado de segurança acionada ou uma condição de falha, conforme a lógica de sinalização definida no projeto.</p>
+          </article>
+</div>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-cat-3"><span class="acc__title">Atuadores elétricos e movimentação</span><span class="acc__count">5</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-cat-3" hidden>
+<div class="parts parts--compact">
+<article class="part part--static">
+            <h4 class="part__name">Driver para atuadores elétricos — SMC</h4>
+            <p class="part__model">Modelo: JXCP18-BC</p>
+            <p class="part__text">Equipamento eletrônico de acionamento utilizado para controlar atuadores elétricos compatíveis. Recebe comandos e controla o movimento conforme o modelo e a configuração.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Atuador elétrico linear horizontal — eixo X</h4>
+            <p class="part__model">Modelo: SMC LEFS16RB-400</p>
+            <p class="part__text">Produz deslocamento linear horizontal, permitindo movimentar um mecanismo entre posições determinadas durante a operação da bancada.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Atuador elétrico linear vertical — eixo Y</h4>
+            <p class="part__model">Modelo: SMC LEFS16B-300</p>
+            <p class="part__text">Produz deslocamento linear vertical, permitindo posicionar um mecanismo em diferentes alturas conforme o programa de controle.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Atuador elétrico rotativo — giro</h4>
+            <p class="part__model">Modelo: SMC LERH50K</p>
+            <p class="part__text">Produz movimento rotativo controlado, podendo ser utilizado para alterar a orientação de um mecanismo ou produto.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Motores DC das esteiras</h4>
+            <p class="part__model">Modelos informados: 100401524 / MR101-B035-PW; motorredutor de 33 RPM e motor DC</p>
+            <p class="part__text">Movimentam as esteiras da bancada. O motorredutor combina o motor com um sistema de redução de velocidade para obter rotação adequada à aplicação.</p>
+          </article>
+</div>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-cat-4"><span class="acc__title">Pneumática e sistema de vácuo</span><span class="acc__count">10</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-cat-4" hidden>
+<div class="parts parts--compact">
+<article class="part part--static">
+            <h4 class="part__name">Atuador pneumático básico — extensor de alvéolo</h4>
+            <p class="part__model">Modelo informado: SMC D10x100mm</p>
+            <p class="part__text">Utiliza ar comprimido para produzir movimento linear, podendo auxiliar no deslocamento ou posicionamento de componentes durante a sequência de expedição.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Cilindros pneumáticos do stopper da esteira</h4>
+            <p class="part__model">SMC Série CJ1</p>
+            <p class="part__text">Produzem movimentos lineares usados para reter ou liberar produtos em pontos determinados da esteira, conforme o circuito pneumático.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Vacuostato digital</h4>
+            <p class="part__model">Modelo: SMC ZSE10F-M5-E-GRK</p>
+            <p class="part__text">Monitora a pressão do sistema de vácuo e fornece informações sobre a condição detectada. Pode ajudar o CLP a verificar se a condição de sucção foi atingida.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Gerador de vácuo — ejetor</h4>
+            <p class="part__model">Modelo: SMC ZU07S</p>
+            <p class="part__text">Produz vácuo a partir de uma alimentação adequada, permitindo utilizar a sucção para segurar produtos ou peças.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Ventosa de sucção</h4>
+            <p class="part__model">Modelo: SMC ZPT25BN-A6</p>
+            <p class="part__text">Entra em contato com a superfície do objeto para segurá-lo por meio do vácuo, quando as condições de aplicação são adequadas.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Válvula solenoide direcional</h4>
+            <p class="part__model">Modelo: SMC SY5120-5DZ-01</p>
+            <p class="part__text">Direciona o fluxo de ar comprimido por acionamento elétrico, controlando o funcionamento de atuadores pneumáticos compatíveis.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Válvula solenoide de segurança</h4>
+            <p class="part__model">Modelo: SMC VP544-5DZ1-03-X538</p>
+            <p class="part__text">Destina-se à função especificada pelo fabricante e pelo projeto pneumático. Sua aplicação de segurança depende da instalação e integração corretas.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Válvula de bloqueio manual</h4>
+            <p class="part__model">Modelo: SMC VHS20-02B</p>
+            <p class="part__text">Permite bloquear ou liberar manualmente a passagem de ar comprimido, conforme as características do dispositivo e sua instalação.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Válvula direcional manual</h4>
+            <p class="part__model">Modelo: SMC VHK2-06F-06FL</p>
+            <p class="part__text">Permite alterar manualmente o direcionamento do ar no circuito pneumático, conforme a função prevista para o modelo.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Filtro regulador de ar comprimido</h4>
+            <p class="part__model">Modelo: SMC AW20-F01BCE-B</p>
+            <p class="part__text">Filtra partículas presentes no ar e permite regular a pressão de alimentação dentro dos limites especificados, contribuindo para o funcionamento adequado dos componentes pneumáticos.</p>
+          </article>
+</div>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-cat-5"><span class="acc__title">Sensores e identificação de produtos</span><span class="acc__count">2</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-cat-5" hidden>
+<div class="parts parts--compact">
+<article class="part part--static">
+            <h4 class="part__name">Leitor RFID — Siemens SIMATIC RF210R</h4>
+            <p class="part__model">Modelo: RF210R</p>
+            <p class="part__text">Identifica transponders RFID compatíveis. Em uma aplicação de expedição, pode auxiliar na identificação e no rastreamento de produtos, conforme o sistema implementado.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Sensor magnético de posição — SMC</h4>
+            <p class="part__model">Modelo: D-A93L</p>
+            <p class="part__text">Detecta a posição de um pistão magnético em um cilindro compatível e fornece um sinal elétrico. Pode informar ao CLP que um mecanismo atingiu determinada posição.</p>
+          </article>
+</div>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-cat-6"><span class="acc__title">Medição e monitoramento de energia</span><span class="acc__count">1</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-cat-6" hidden>
+<div class="parts parts--compact">
+<article class="part part--static">
+            <h4 class="part__name">Multimedidor de energia — Smart Sense</h4>
+            <p class="part__model">Modelo não especificado na lista fornecida</p>
+            <p class="part__text">É utilizado para medir grandezas elétricas conforme o modelo e a configuração. Essas medições podem auxiliar no acompanhamento do consumo e na avaliação do funcionamento elétrico da instalação. As grandezas exatas devem ser confirmadas no equipamento.</p>
+          </article>
+</div>
+  </div>
+</div>
+</div>
+
+        <aside class="note">
+          <p>Os modelos e códigos foram transcritos da lista fornecida. Confirme-os nas etiquetas e na documentação dos fabricantes antes de usar qualquer informação em ligações ou ajustes.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 08 · INTEGRAÇÃO DOS COMPONENTES -->
+    <section class="article" id="integracao">
+      <div class="container">
+        <p class="eyebrow">Integração <span class="eyebrow__sep">/</span> <strong>08</strong></p>
+
+        <div class="blocks" aria-hidden="true">
+          <span class="blocks__item" style="flex:2.4;background:var(--c-taupe)"></span>
+          <span class="blocks__item" style="flex:1.2;background:var(--c-sage)"></span>
+          <span class="blocks__item" style="flex:1.8;background:var(--c-sand)"></span>
+          <img class="blocks__photo" src="assets/img/08-integracao.jpg" alt="Bancada de Automação e Expedição — Integração dos componentes" loading="lazy" onerror="this.remove()">
+        </div>
+        <p class="caption">Como os componentes trabalham juntos</p>
+
+        <p class="author">Integração dos componentes</p>
+        <h2 class="title title--serif">Integração dos componentes na bancada</h2>
+        <p class="lead">Na bancada de expedição, os componentes trabalham de forma integrada para realizar operações de transporte, posicionamento e movimentação de produtos. Os sensores detectam condições e posições. O CLP Siemens S7-1200 processa essas informações e executa a lógica programada.</p>
+        <p class="lead lead--small">Os drivers controlam os atuadores elétricos, enquanto as válvulas direcionam o ar comprimido para os mecanismos pneumáticos. As esteiras transportam os produtos, e o sistema de vácuo permite segurá-los por sucção. A IHM possibilita a interação do operador com a máquina.</p>
+
+        <h3 class="subtitle">Resumo do funcionamento</h3>
+        <ol class="flow" aria-label="Resumo do funcionamento">
+          <li><span>1</span> Sensores detectam</li>
+          <li><span>2</span> CLP processa</li>
+          <li><span>3</span> Drivers e válvulas acionam</li>
+          <li><span>4</span> Atuadores movimentam</li>
+          <li><span>5</span> IHM apresenta informações ao operador</li>
+        </ol>
+
+        <p class="lead lead--small lead--after">Os dispositivos de alimentação, proteção e segurança contribuem para o funcionamento adequado do sistema, respeitando os requisitos do projeto e as orientações de operação. Não se deve alterar ligações elétricas, soltar mangueiras ou ajustar componentes energizados sem autorização e supervisão do responsável.</p>
+
+        <aside class="note">
+          <p><strong>Observação técnica:</strong> os modelos e códigos do complemento foram transcritos da lista fornecida. As descrições explicam funções técnicas gerais e não substituem os manuais dos fabricantes. A aplicação exata, as ligações, os parâmetros e as funções de segurança devem ser confirmados na documentação dos equipamentos e no projeto real da bancada.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 09 · DESENHO E SIMULAÇÃO -->
     <section class="article" id="cad-simu">
       <div class="container">
-        <p class="eyebrow">Desenho e simulação <span class="eyebrow__sep">/</span> <strong>07</strong></p>
+        <p class="eyebrow">Desenho e simulação <span class="eyebrow__sep">/</span> <strong>09</strong></p>
 
         <div class="blocks" aria-hidden="true">
           <span class="blocks__item" style="flex:2;background:var(--c-taupe)"></span>
           <span class="blocks__item" style="flex:1;background:var(--c-sand)"></span>
           <span class="blocks__item" style="flex:2.6;background:var(--c-sage)"></span>
-          <img class="blocks__photo" src="assets/img/07-cad-simu.jpg" alt="Bancada de Automação e Expedição — Esquema elétrico" loading="lazy" onerror="this.remove()">
+          <img class="blocks__photo" src="assets/img/09-cad-simu.jpg" alt="Bancada de Automação e Expedição — Esquema elétrico" loading="lazy" onerror="this.remove()">
         </div>
         <p class="caption">Esquema elétrico</p>
 
@@ -688,7 +993,7 @@
     <!-- REFERÊNCIAS TÉCNICAS -->
     <section class="article" id="referencias">
       <div class="container">
-        <p class="eyebrow">Fontes <span class="eyebrow__sep">/</span> <strong>08</strong></p>
+        <p class="eyebrow">Fontes <span class="eyebrow__sep">/</span> <strong>10</strong></p>
 
         <p class="author">Referências</p>
         <h2 class="title title--sans">Referências técnicas</h2>
@@ -777,6 +1082,7 @@
         <a href="#piramide">Pirâmide</a><span aria-hidden="true">·</span>
         <a href="#clp">CLP</a><span aria-hidden="true">·</span>
         <a href="#equipamentos">Equipamentos</a><span aria-hidden="true">·</span>
+        <a href="#catalogo">Catálogo</a><span aria-hidden="true">·</span>
         <a href="#referencias">Referências</a>
       </nav>
       <p class="site-footer__legal">© Indústria 4.0 — Bancada de Expedição</p>
@@ -786,5 +1092,6 @@
   <script src="js/menu.js"></script>
   <script src="js/pyramid.js"></script>
   <script src="js/accordion.js"></script>
+  <script src="js/catalog-search.js"></script>
 </body>
 </html>
