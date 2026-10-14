@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Indústria 4.0 — Bancada de Expedição</title>
+  <meta name="description" content="Fundamentos de automação industrial, controle, sensores, acionamentos e redes da Bancada de Automação e Expedição.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="site-header">
+    <div class="container">
+      <div class="site-header__bar">
+        <a class="brand" href="#topo" id="topo">
+          <span class="brand__name">INDÚSTRIA 4.0</span>
+          <span class="brand__tag">Bancada de Automação e Expedição</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">
+          <span>MENU</span> <span class="menu-toggle__icon" aria-hidden="true">+</span>
+        </button>
+      </div>
+      <nav class="menu" id="menu" hidden>
+        <ol class="menu__list">
+          <li><a href="#introducao"><span>01</span> Introdução</a></li>
+          <li><a href="#piramide"><span>02</span> Pirâmide da Automação</a></li>
+          <li><a href="#clp"><span>03</span> CLP</a></li>
+          <li><a href="#ihm-scada"><span>04</span> IHM e SCADA</a></li>
+          <li><a href="#sensores"><span>05</span> Sensores e Atuadores</a></li>
+          <li><a href="#equipamentos"><span>06</span> Equipamentos e Redes</a></li>
+          <li><a href="#cad-simu"><span>07</span> Desenho e Simulação</a></li>
+          <li><a href="#referencias"><span>08</span> Referências</a></li>
+        </ol>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <p class="hint"><span class="hint__icon" aria-hidden="true">+</span><span><strong>Títulos em azul são clicáveis.</strong> Toque para abrir ou fechar o conteúdo.</span></p>
+    </div>
+
+    <!-- 01 · INTRODUÇÃO -->
+    <section class="article" id="introducao">
+      <div class="container">
+        <p class="eyebrow">Pesquisa técnica <span class="eyebrow__sep">/</span> <strong>01</strong></p>
+
+        <div class="blocks" aria-hidden="true">
+          <span class="blocks__item" style="flex:1.1;background:var(--c-taupe)"></span>
+          <span class="blocks__item" style="flex:4.2;background:var(--c-sage)"></span>
+          <span class="blocks__item" style="flex:1.6;background:var(--c-sand)"></span>
+          <img class="blocks__photo" src="assets/img/01-introducao.jpg" alt="Bancada de Automação e Expedição — Ilustração / Editorial" loading="lazy" onerror="this.remove()">
+        </div>
+        <p class="caption">Ilustração / Editorial</p>
+
+        <p class="author">Introdução</p>
+        <h1 class="title title--sans">Bancada de Automação — Expedição</h1>
+        <p class="lead">Fundamentos de automação industrial, controle, sensores, acionamentos e redes.</p>
+        <p class="lead lead--small">Pesquisa de conteúdo técnico baseada na documentação visual da bancada e em referências técnicas de organizações e fabricantes.</p>
+
+        <aside class="note">
+          <p>Os componentes e endereços citados como específicos da bancada foram transcritos das imagens fornecidas. Onde o modelo exato não está identificado, a explicação descreve o princípio técnico geral e não presume uma configuração não confirmada.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 02 · PIRÂMIDE DA AUTOMAÇÃO -->
+    <section class="article" id="piramide">
+      <div class="container">
+        <p class="eyebrow">Pirâmide da automação <span class="eyebrow__sep">/</span> <strong>02</strong></p>
+
+        <div class="blocks" aria-hidden="true">
+          <span class="blocks__item" style="flex:2.2;background:var(--c-sand)"></span>
+          <span class="blocks__item" style="flex:3.4;background:var(--c-taupe)"></span>
+          <img class="blocks__photo" src="assets/img/02-piramide.jpg" alt="Bancada de Automação e Expedição — Visão geral dos cinco níveis" loading="lazy" onerror="this.remove()">
+        </div>
+        <p class="caption">Visão geral dos cinco níveis</p>
+
+        <p class="author">Níveis</p>
+        <h2 class="title title--sans">Pirâmide da automação industrial</h2>
+        <p class="lead">A pirâmide da automação é uma representação didática de como as funções de uma indústria se organizam, desde os equipamentos que atuam diretamente na máquina até os sistemas que apoiam o planejamento e a gestão empresarial.</p>
+        <p class="lead lead--small">Na imagem de referência deste trabalho, ela possui cinco níveis: campo, controle, supervisão, planejamento e gestão. Os níveis se complementam e trocam informações, mas nem todos precisam estar presentes em uma bancada didática.</p>
+
+        <p class="hint hint--local"><span class="hint__icon" aria-hidden="true">+</span><span><strong>Toque em cada nível</strong> da pirâmide para abrir a explicação.</span></p>
+
+        <p class="legend"><span class="legend__swatch" aria-hidden="true"></span> Níveis em que a bancada atua principalmente</p>
+
+        <ol class="pyramid" aria-label="Níveis da pirâmide da automação">
+          <li class="pyramid__item">
+            <button class="pyramid__btn" type="button" style="--w:58%" aria-expanded="false" aria-controls="nivel-gestao">
+              <span class="pyramid__name">Gestão</span>
+              <span class="pyramid__tag">ERP</span>
+              <span class="pyramid__icon" aria-hidden="true"></span>
+            </button>
+            <div class="pyramid__panel" id="nivel-gestao" hidden>
+              <p class="pyramid__summary">Integra informações empresariais, como estoque, compras, finanças, pedidos e logística.</p>
+              <p>O ERP (Enterprise Resource Planning) integra informações da empresa, como compras, estoque, vendas, finanças e logística. Ele normalmente atua em um sistema empresarial mais amplo, não no controle direto de uma máquina.</p>
+            </div>
+          </li>
+
+          <li class="pyramid__item">
+            <button class="pyramid__btn" type="button" style="--w:70%" aria-expanded="false" aria-controls="nivel-planejamento">
+              <span class="pyramid__name">Planejamento</span>
+              <span class="pyramid__tag">MES</span>
+              <span class="pyramid__icon" aria-hidden="true"></span>
+            </button>
+            <div class="pyramid__panel" id="nivel-planejamento" hidden>
+              <p class="pyramid__summary">Acompanha e organiza a execução da produção e conecta dados operacionais ao planejamento.</p>
+              <p>O MES (Manufacturing Execution System) acompanha a execução das operações produtivas, como ordens, etapas e quantidades, quando uma indústria utiliza esse tipo de sistema.</p>
+            </div>
+          </li>
+
+          <li class="pyramid__item">
+            <button class="pyramid__btn" type="button" style="--w:82%" aria-expanded="false" aria-controls="nivel-supervisao">
+              <span class="pyramid__name">Supervisão</span>
+              <span class="pyramid__tag">SCADA · Historian · HMI/IHM</span>
+              <span class="pyramid__icon" aria-hidden="true"></span>
+            </button>
+            <div class="pyramid__panel" id="nivel-supervisao" hidden>
+              <p class="pyramid__summary">Apresenta estados, valores e alarmes; sistemas Historian registram dados ao longo do tempo quando estão implantados.</p>
+              <p>Inclui a interface usada pelo operador para acompanhar e comandar a máquina, além de sistemas SCADA e Historian quando existem. A tela frontal da bancada está relacionada à função de IHM, mas as imagens não confirmam que haja um sistema SCADA ou um Historian instalado.</p>
+            </div>
+          </li>
+
+          <li class="pyramid__item pyramid__item--focus">
+            <button class="pyramid__btn" type="button" style="--w:91%" aria-expanded="true" aria-controls="nivel-controle">
+              <span class="pyramid__name">Controle</span>
+              <span class="pyramid__tag">CLP/PLC · PID · DCS</span>
+              <span class="pyramid__icon" aria-hidden="true"></span>
+            </button>
+            <div class="pyramid__panel" id="nivel-controle">
+              <p class="pyramid__summary">Executa a lógica de automação, processa sinais e regula variáveis do processo.</p>
+              <p>É o nível em que o controlador executa o programa de automação. O CLP Siemens S7-1200 identificado nas imagens recebe os sinais dos dispositivos, avalia as condições programadas e comanda as saídas responsáveis pelos movimentos da bancada.</p>
+            </div>
+          </li>
+
+          <li class="pyramid__item pyramid__item--focus">
+            <button class="pyramid__btn" type="button" style="--w:100%" aria-expanded="true" aria-controls="nivel-campo">
+              <span class="pyramid__name">Campo</span>
+              <span class="pyramid__tag">Equipamentos · Sensores · Atuadores</span>
+              <span class="pyramid__icon" aria-hidden="true"></span>
+            </button>
+            <div class="pyramid__panel" id="nivel-campo">
+              <p class="pyramid__summary">Interage diretamente com o processo físico: sensores detectam condições e atuadores realizam ações.</p>
+              <p>É formado pelos dispositivos que interagem diretamente com a máquina. Sensores detectam presença, posição ou outras condições; atuadores movimentam mecanismos; esteiras transportam produtos e stoppers podem retê-los ou liberá-los. Na bancada de expedição, esses componentes representam a parte física do processo.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="bar" aria-hidden="true"></div>
+
+        <p class="author">Localização</p>
+        <h3 class="title title--serif">Onde a Bancada de Expedição está localizada na pirâmide?</h3>
+        <p class="lead">A Bancada de Expedição está localizada principalmente nos níveis de campo e de controle da pirâmide da automação.</p>
+        <div class="acc">
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-28"><span class="acc__title">Detalhes: campo, controle e supervisão</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-28" hidden>
+<p class="lead lead--small">No nível de campo ficam os componentes físicos, como esteiras, stoppers, sensores, válvulas e atuadores, que transportam, detectam, seguram ou movimentam os produtos. No nível de controle fica o CLP Siemens S7-1200, que recebe os sinais desses dispositivos, executa o programa e determina a sequência das operações.</p>
+        <p class="lead lead--small">A bancada representa, em escala didática, uma etapa de um processo industrial de expedição: os produtos são transportados entre posições e podem ser retidos, posicionados ou movimentados por mecanismos automatizados. O CLP coordena essas ações conforme a lógica programada, enquanto o operador interage com a máquina pela tela frontal, associada à função de IHM e, portanto, à camada de supervisão local. Essa relação não significa que a bancada possua necessariamente sistemas MES ou ERP; esses sistemas pertencem a níveis superiores e costumam integrar operações de uma fábrica inteira.</p>
+  </div>
+</div>
+</div>
+
+        <aside class="note">
+          <p><strong>Resumindo:</strong> a parte física da bancada corresponde ao campo; o CLP corresponde ao controle; e a tela de operação se relaciona à supervisão. Esses elementos trabalham em conjunto para automatizar o transporte e o manuseio dos produtos.</p>
+        </aside>
+
+        <h3 class="subtitle">Comunicação entre os níveis</h3>
+        <p class="lead lead--small">Os sensores enviam sinais ao CLP; o CLP processa a lógica e comanda atuadores, motores ou válvulas; e a IHM pode mostrar estados e receber comandos autorizados. A comunicação pode usar sinais elétricos e redes industriais, conforme os equipamentos e a configuração instalada.</p>
+      </div>
+    </section>
+
+    <!-- 03 · CLP -->
+    <section class="article" id="clp">
+      <div class="container">
+        <p class="eyebrow">Controle <span class="eyebrow__sep">/</span> <strong>03</strong></p>
+
+        <div class="blocks" aria-hidden="true">
+          <span class="blocks__item" style="flex:2.6;background:var(--c-sage)"></span>
+          <span class="blocks__item" style="flex:1.2;background:var(--c-sand)"></span>
+          <span class="blocks__item" style="flex:2;background:var(--c-taupe)"></span>
+          <img class="blocks__photo" src="assets/img/03-clp.jpg" alt="Bancada de Automação e Expedição — CLP Siemens SIMATIC S7-1200" loading="lazy" onerror="this.remove()">
+        </div>
+        <p class="caption">CLP Siemens SIMATIC S7-1200</p>
+
+        <p class="author">Controlador Lógico Programável</p>
+        <h2 class="title title--serif">CLP: o cérebro da bancada</h2>
+        <p class="lead">O CLP é um controlador industrial programável desenvolvido para monitorar sinais, executar uma lógica e comandar saídas de acordo com o programa. É utilizado em máquinas que precisam repetir sequências com confiabilidade, como sistemas de transporte, posicionamento, embalagem e expedição.</p>
+        <p class="lead lead--small">A imagem da bancada identifica um Siemens SIMATIC S7-1200; os recursos exatos dependem do modelo de CPU, dos módulos e da configuração de hardware.</p>
+
+        <h3 class="subtitle">Partes funcionais</h3>
+        <div class="acc">
+<div class="acc__tools"><button class="acc__all" type="button">Abrir todos</button></div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="true" aria-controls="acc-5"><span class="acc__title">Entradas digitais</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-5">
+<p class="part__text">Recebem sinais discretos, normalmente representados por 0 ou 1.</p>
+            <p class="part__example"><span>Na bancada</span> Emergência, Start/Stop, alimentador avançado/recuado e vacuostato.</p>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-6"><span class="acc__title">CPU e programa</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-6" hidden>
+<p class="part__text">Executam a lógica e avaliam condições, permissões e intertravamentos.</p>
+            <p class="part__example"><span>Na bancada</span> Determinar quando avançar o alimentador ou acionar uma esteira.</p>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-7"><span class="acc__title">Saídas digitais</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-7" hidden>
+<p class="part__text">Comandam dispositivos compatíveis por meio de circuitos de interface adequados.</p>
+            <p class="part__example"><span>Na bancada</span> Motores de esteira, vácuo e válvulas dos stoppers.</p>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-8"><span class="acc__title">Comunicação</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-8" hidden>
+<p class="part__text">Troca dados com dispositivos de programação, IHM e equipamentos compatíveis.</p>
+            <p class="part__example"><span>Na bancada</span> Rede Ethernet/PROFINET se estiver configurada no projeto.</p>
+  </div>
+</div>
+</div>
+
+        <div class="bar" aria-hidden="true"></div>
+
+        <h3 class="subtitle subtitle--first">Ciclo de execução</h3>
+        <p class="lead lead--small">Em termos simplificados, o CLP atualiza a leitura das entradas, executa as instruções do programa e atualiza as saídas. O controlador repete esse ciclo continuamente durante a execução. O comportamento exato também depende de tarefas, interrupções, módulos e recursos configurados.</p>
+
+        <ol class="cycle" aria-label="Ciclo de execução do CLP">
+          <li><span>1</span> Lê as entradas</li>
+          <li><span>2</span> Executa o programa</li>
+          <li><span>3</span> Atualiza as saídas</li>
+        </ol>
+
+        <h3 class="subtitle">Exemplo de sequência</h3>
+        <p class="lead lead--small">Ao receber um pedido de partida, o programa pode verificar se a emergência está liberada e se as condições necessárias foram atendidas. Em seguida, pode comandar uma esteira. Quando um sensor confirma a chegada de uma peça, o CLP usa essa informação para avançar a sequência. Trata-se de um exemplo didático: a sequência real precisa ser confirmada no programa utilizado na bancada.</p>
+
+        <h3 class="subtitle">Entradas e saídas transcritas das imagens</h3>
+
+        <div class="acc">
+<div class="acc__tools"><button class="acc__all" type="button">Abrir todos</button></div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="true" aria-controls="acc-24"><span class="acc__title">Entradas</span><span class="acc__count">7</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-24">
+<div class="table-wrap">
+          <table class="io">
+            <caption class="sr-only">Entradas</caption>
+            <thead>
+              <tr><th scope="col">Descrição</th><th scope="col">Canal</th><th scope="col">Endereço</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Emergência</td><td>Ia1</td><td>%I0.1</td></tr>
+              <tr><td>Alimentador avançado</td><td>Ia2</td><td>%I0.2</td></tr>
+              <tr><td>Alimentador recuado</td><td>Ia3</td><td>%I0.3</td></tr>
+              <tr><td>Vacuostato</td><td>Ia4</td><td>%I0.4</td></tr>
+              <tr><td>Comutador 2 posições</td><td>Ia5</td><td>%I0.5</td></tr>
+              <tr><td>Botão Start</td><td>Ia6</td><td>%I0.6</td></tr>
+              <tr><td>Botão Stop</td><td>Ia7</td><td>%I0.7</td></tr>
+            </tbody>
+          </table>
+        </div>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-25"><span class="acc__title">Saídas</span><span class="acc__count">7</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-25" hidden>
+<div class="table-wrap">
+          <table class="io io--out">
+            <caption class="sr-only">Saídas</caption>
+            <thead>
+              <tr><th scope="col">Descrição</th><th scope="col">Canal</th><th scope="col">Endereço</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Avança alimentador</td><td>Qa0</td><td>%Q0.0</td></tr>
+              <tr><td>Aciona vácuo</td><td>Qa1</td><td>%Q0.1</td></tr>
+              <tr><td>Motor esteira 1 e giro</td><td>Qa2</td><td>%Q0.2</td></tr>
+              <tr><td>Motor esteira 2</td><td>Qa3</td><td>%Q0.3</td></tr>
+              <tr><td>Válvula 1 do stopper</td><td>Qa4</td><td>%Q0.4</td></tr>
+              <tr><td>Válvula 2 do stopper</td><td>Qa5</td><td>%Q0.5</td></tr>
+              <tr><td>Status do processo ao Smart Sense</td><td>Qb1</td><td>%Q1.1</td></tr>
+            </tbody>
+          </table>
+        </div>
+  </div>
+</div>
+</div>
+
+        <aside class="note">
+          <p>Os canais e endereços foram transcritos do material visual fornecido. Confirme a correspondência com o projeto real do TIA Portal e com a configuração de hardware antes de utilizá-los em uma programação.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 04 · IHM E SCADA -->
+    <section class="article" id="ihm-scada">
+      <div class="container">
+        <p class="eyebrow">Supervisão <span class="eyebrow__sep">/</span> <strong>04</strong></p>
+
+        <div class="blocks" aria-hidden="true">
+          <span class="blocks__item" style="flex:3;background:var(--c-taupe)"></span>
+          <span class="blocks__item" style="flex:1.4;background:var(--c-sage)"></span>
+          <span class="blocks__item" style="flex:1.8;background:var(--c-sand)"></span>
+          <img class="blocks__photo" src="assets/img/04-ihm-scada.jpg" alt="Bancada de Automação e Expedição — Operador e máquina" loading="lazy" onerror="this.remove()">
+        </div>
+        <p class="caption">Operador e máquina</p>
+
+        <p class="author">IHM e SCADA</p>
+        <h2 class="title title--sans">IHM — Interface Homem-Máquina</h2>
+        <p class="lead">A IHM é o meio pelo qual o operador interage com a máquina. Em geral, é uma tela ou painel que apresenta estados, valores e mensagens e permite enviar comandos autorizados. A IHM troca dados com o controlador por uma conexão configurada; a forma de comunicação depende dos modelos e do projeto.</p>
+        <p class="lead lead--small">Uma IHM pode exibir estados como máquina parada, pronta, em operação ou em falha; valores fornecidos por sensores; comandos como iniciar ou parar; e mensagens de diagnóstico. Esses recursos precisam ser desenvolvidos e associados às variáveis corretas do CLP.</p>
+
+        <ul class="facts" aria-label="O que uma IHM pode exibir">
+          <li><strong>Estados</strong> parada, pronta, em operação ou em falha</li>
+          <li><strong>Valores</strong> fornecidos por sensores</li>
+          <li><strong>Comandos</strong> como iniciar ou parar</li>
+          <li><strong>Diagnóstico</strong> mensagens de diagnóstico</li>
+        </ul>
+
+        <aside class="note">
+          <p>A bancada mostrada nas imagens possui uma tela na parte frontal. Sem a identificação do modelo e das telas configuradas, é correto dizer que ela se destina à interação do operador, mas não afirmar que possui históricos, alarmes avançados ou acesso remoto.</p>
+        </aside>
+
+        <p class="author author--break">Sistema supervisório</p>
+        <h3 class="title title--serif">SCADA: supervisão e aquisição de dados</h3>
+        <p class="lead">SCADA significa Supervisory Control and Data Acquisition (supervisão, controle e aquisição de dados). É uma arquitetura de software usada para reunir informações do processo, apresentá-las ao operador e, quando previsto, permitir comandos de supervisão.</p>
+        <p class="lead lead--small">Sistemas SCADA podem oferecer sinóticos, alarmes, tendências, registros de eventos e históricos, conforme a solução implementada.</p>
+
+        <h3 class="subtitle">Diferença entre CLP, IHM e SCADA</h3>
+        <div class="acc">
+<div class="acc__tools"><button class="acc__all" type="button">Abrir todos</button></div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="true" aria-controls="acc-9"><span class="acc__title">CLP</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-9">
+<p class="part__text">Executa a lógica de controle e atualiza as saídas de acordo com o programa.</p>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-10"><span class="acc__title">IHM</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-10" hidden>
+<p class="part__text">Oferece interação local com a máquina e apresenta dados disponibilizados pelo controlador.</p>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-11"><span class="acc__title">SCADA</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-11" hidden>
+<p class="part__text">Pode supervisionar uma ou várias máquinas, reunir informações, alarmes e tendências.</p>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-12"><span class="acc__title">Historian</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-12" hidden>
+<p class="part__text">Armazena dados ao longo do tempo para consulta, análise e rastreabilidade.</p>
+  </div>
+</div>
+</div>
+
+        <aside class="note">
+          <p>Um SCADA não substitui automaticamente o CLP: o controlador costuma continuar responsável pelas respostas rápidas e pela lógica local. A IHM pode ser parte de uma solução SCADA ou apenas um painel local. Por isso, os termos não devem ser usados como sinônimos.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 05 · SENSORES E ATUADORES -->
+    <section class="article" id="sensores">
+      <div class="container">
+        <p class="eyebrow">Campo <span class="eyebrow__sep">/</span> <strong>05</strong></p>
+
+        <div class="blocks" aria-hidden="true">
+          <span class="blocks__item" style="flex:1.6;background:var(--c-sand)"></span>
+          <span class="blocks__item" style="flex:1;background:var(--c-taupe)"></span>
+          <span class="blocks__item" style="flex:3.2;background:var(--c-sage)"></span>
+          <img class="blocks__photo" src="assets/img/05-sensores.jpg" alt="Bancada de Automação e Expedição — Sensores e atuadores" loading="lazy" onerror="this.remove()">
+        </div>
+        <p class="caption">Sensores e atuadores</p>
+
+        <p class="author">Sensores industriais</p>
+        <h2 class="title title--sans">Como a máquina percebe o processo</h2>
+        <p class="lead">Sensores são dispositivos que detectam uma condição física e produzem um sinal que pode ser interpretado por um sistema de controle. Dependendo do modelo, esse sinal pode ser digital, analógico ou transmitido por uma rede.</p>
+        <p class="lead lead--small">A escolha do sensor considera material do objeto, distância, velocidade, ambiente, montagem, alimentação e tipo de saída.</p>
+
+        <h3 class="subtitle">Tecnologias de sensores</h3>
+        <div class="acc">
+<div class="acc__tools"><button class="acc__all" type="button">Abrir todos</button></div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="true" aria-controls="acc-13"><span class="acc__title">Indutivo</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-13">
+<p class="part__text">Utiliza um campo eletromagnético para detectar objetos metálicos próximos.</p>
+            <p class="part__example"><span>Aplicação</span> Detecção de posição de uma peça metálica.</p>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-14"><span class="acc__title">Fotoelétrico</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-14" hidden>
+<p class="part__text">Usa luz emitida e recebida para detectar presença, passagem ou interrupção do feixe.</p>
+            <p class="part__example"><span>Aplicação</span> Detectar um produto em uma esteira.</p>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-15"><span class="acc__title">Capacitivo</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-15" hidden>
+<p class="part__text">Detecta alterações de capacitância e pode reconhecer diferentes materiais conforme ajuste e instalação.</p>
+            <p class="part__example"><span>Aplicação</span> Detecção de sólidos ou líquidos em aplicações apropriadas.</p>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-16"><span class="acc__title">Vacuostato</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-16" hidden>
+<p class="part__text">Monitora a pressão de vácuo e comuta a saída quando uma condição configurada é atingida.</p>
+            <p class="part__example"><span>Aplicação</span> Confirmar a condição de vácuo do sistema de pega; aparece na lista de entradas da bancada.</p>
+  </div>
+</div>
+</div>
+
+        <h3 class="subtitle">Sensor, sinal e decisão</h3>
+        <p class="lead lead--small">O sensor detecta uma condição e fornece o sinal; a entrada do CLP recebe esse sinal; o programa verifica a condição; e a lógica determina a resposta. Um sensor comum não decide sozinho a sequência completa da máquina. Essa decisão resulta do programa, das condições de operação e dos intertravamentos.</p>
+
+        <h3 class="subtitle">Entradas discretas e analógicas</h3>
+        <p class="lead lead--small">Uma entrada discreta representa estados como ligado/desligado ou presença/ausência. Uma entrada analógica representa uma grandeza variável dentro de uma faixa, como pressão ou temperatura, desde que o sensor e o módulo sejam compatíveis.</p>
+        <aside class="note">
+          <p>Não se deve supor que todas as entradas da bancada sejam analógicas: a tabela fornecida lista sinais de entrada específicos, aparentemente discretos.</p>
+        </aside>
+
+        <p class="author author--break">Pneumática, atuadores e vácuo</p>
+        <h3 class="title title--serif">Ar comprimido, vácuo e movimento</h3>
+        <p class="lead">A pneumática utiliza ar comprimido para transmitir energia e produzir movimentos. O ar é conduzido por tubulações e controlado por válvulas. Um atuador pneumático converte a energia do ar em movimento linear ou rotativo.</p>
+        <p class="lead lead--small">Já um sistema de vácuo cria uma pressão inferior à pressão ambiente para segurar objetos por sucção, por exemplo com uma ventosa.</p>
+
+        <h3 class="subtitle">Componentes pneumáticos identificados na imagem</h3>
+        <div class="acc">
+<div class="acc__tools"><button class="acc__all" type="button">Abrir todos</button></div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="true" aria-controls="acc-17"><span class="acc__title">Entrada de ar comprimido</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-17">
+<p class="part__text">Ponto de alimentação do circuito pneumático.</p>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-18"><span class="acc__title">Filtro regulador</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-18" hidden>
+<p class="part__text">Retém partículas e permite regular a pressão de trabalho dentro dos limites do sistema.</p>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-19"><span class="acc__title">Válvula manual</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-19" hidden>
+<p class="part__text">Permite uma ação manual prevista no circuito, conforme sua função e montagem.</p>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-20"><span class="acc__title">Válvulas pneumáticas</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-20" hidden>
+<p class="part__text">Direcionam, liberam ou bloqueiam o ar para acionar funções do circuito.</p>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-21"><span class="acc__title">Gerador de vácuo</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-21" hidden>
+<p class="part__text">Produz vácuo a partir da alimentação prevista no dispositivo.</p>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-22"><span class="acc__title">Vacuostato</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-22" hidden>
+<p class="part__text">Monitora a condição de vácuo e fornece um sinal de saída.</p>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-23"><span class="acc__title">Válvula de bloqueio</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-23" hidden>
+<p class="part__text">Interrompe ou permite a passagem de ar de acordo com o circuito.</p>
+  </div>
+</div>
+</div>
+
+        <p class="lead lead--small lead--after">A sequência de uma aplicação pode incluir posicionar o mecanismo, ativar o vácuo, confirmar a condição de pega, mover o produto e liberar a peça no destino. Essa descrição explica uma sequência típica, não confirma a ordem exata programada na bancada.</p>
+
+        <h3 class="subtitle">Atuadores elétricos</h3>
+        <p class="lead lead--small">A bancada também lista atuadores elétricos dos eixos X e Y e um atuador de giro. Eles convertem energia elétrica em movimento controlado. O tipo de motor, a realimentação e a estratégia de comando dependem do conjunto instalado. Esses atuadores não devem ser chamados de pneumáticos se forem acionados eletricamente.</p>
+
+        <aside class="note">
+          <p><strong>Segurança operacional:</strong> a operação deve seguir as orientações do professor, as proteções instaladas e os procedimentos da bancada. Não se deve soltar mangueiras, alterar ligações elétricas ou ajustar componentes energizados sem autorização e supervisão.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 06 · EQUIPAMENTOS E REDES -->
+    <section class="article" id="equipamentos">
+      <div class="container">
+        <p class="eyebrow">Equipamentos e redes <span class="eyebrow__sep">/</span> <strong>06</strong></p>
+
+        <div class="blocks" aria-hidden="true">
+          <span class="blocks__item" style="flex:1;background:var(--c-sage)"></span>
+          <span class="blocks__item" style="flex:2.8;background:var(--c-sand)"></span>
+          <span class="blocks__item" style="flex:1.6;background:var(--c-taupe)"></span>
+          <img class="blocks__photo" src="assets/img/06-equipamentos.jpg" alt="Bancada de Automação e Expedição — Equipamentos da bancada" loading="lazy" onerror="this.remove()">
+        </div>
+        <p class="caption">Equipamentos da bancada</p>
+
+        <p class="author">Equipamentos e dispositivos</p>
+        <h2 class="title title--sans">O que compõe a bancada</h2>
+        <p class="lead">Os itens a seguir foram identificados nas imagens fornecidas. As descrições apresentam suas funções usuais; valores de tensão, corrente, capacidade, modelo e ligações devem ser confirmados nas etiquetas e nos manuais dos componentes.</p>
+
+        <div class="acc">
+<div class="acc__tools"><button class="acc__all" type="button">Abrir todos</button></div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="true" aria-controls="acc-1"><span class="acc__title">Movimentação e produto</span><span class="acc__count">7</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-1">
+<div class="parts parts--compact">
+<article class="part part--static">
+            <h4 class="part__name">Esteira</h4>
+            <p class="part__text">Transporta produtos entre etapas do processo.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Stopper</h4>
+            <p class="part__text">Retém ou libera a passagem de uma peça em um ponto definido.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Esteira de giro</h4>
+            <p class="part__text">Participa da mudança de direção ou orientação do produto, conforme o mecanismo instalado.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Atuador elétrico eixo X</h4>
+            <p class="part__text">Produz deslocamento linear no eixo X.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Atuador elétrico eixo Y</h4>
+            <p class="part__text">Produz deslocamento linear no eixo Y.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Atuador elétrico de giro</h4>
+            <p class="part__text">Produz movimento rotativo.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Prateleira de produtos finalizados</h4>
+            <p class="part__text">Recebe ou armazena os produtos ao fim da sequência.</p>
+          </article>
+</div>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-2"><span class="acc__title">Alimentação e proteção</span><span class="acc__count">5</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-2" hidden>
+<div class="parts parts--compact">
+<article class="part part--static">
+            <h4 class="part__name">Fonte chaveada 24 Vcc</h4>
+            <p class="part__text">Converte a alimentação de entrada em corrente contínua de 24 V, dentro das especificações do modelo.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Disjuntores de proteção</h4>
+            <p class="part__text">Protegem circuitos contra sobrecorrentes dentro das características nominais do dispositivo.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Relés de interface</h4>
+            <p class="part__text">Fazem a interface entre sinais de comando e outros circuitos, respeitando as características elétricas.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Relé de segurança</h4>
+            <p class="part__text">Executa funções de segurança previstas no projeto quando ligado e configurado corretamente.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Contator tripolar</h4>
+            <p class="part__text">Comuta circuitos de potência por meio de contatos acionados eletricamente.</p>
+          </article>
+</div>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-3"><span class="acc__title">Acionamento</span><span class="acc__count">1</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-3" hidden>
+<div class="parts parts--compact">
+<article class="part part--static">
+            <h4 class="part__name">Driver dos atuadores</h4>
+            <p class="part__text">Recebe comandos e controla a energia fornecida ao motor compatível.</p>
+          </article>
+</div>
+  </div>
+</div>
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-4"><span class="acc__title">Rede e medição</span><span class="acc__count">3</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-4" hidden>
+<div class="parts parts--compact">
+<article class="part part--static">
+            <h4 class="part__name">Switch Ethernet de 5 portas</h4>
+            <p class="part__text">Interliga equipamentos Ethernet numa rede local; não garante, sozinho, que a rede esteja configurada como PROFINET.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Multimedidor Smart Sense</h4>
+            <p class="part__text">Mede grandezas elétricas conforme o modelo e a configuração.</p>
+          </article>
+<article class="part part--static">
+            <h4 class="part__name">Cliente Wi-Fi</h4>
+            <p class="part__text">Item de conectividade sem fio listado na imagem; função exata depende da configuração do sistema.</p>
+          </article>
+</div>
+  </div>
+</div>
+</div>
+
+        <p class="author author--break">Driver de acionamento</p>
+        <h3 class="title title--serif">Driver de acionamento e configuração</h3>
+        <p class="lead">Um driver de acionamento é um equipamento eletrônico que faz a interface entre os comandos do controlador e o motor compatível. Dependendo do conjunto, pode controlar velocidade, posição, torque ou apenas habilitar o movimento.</p>
+        <p class="lead lead--small">O significado de cada borne, o tipo de sinal e os parâmetros dependem do fabricante, do modelo e do motor conectado.</p>
+
+        <div class="acc">
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-26"><span class="acc__title">Parâmetros que costumam existir</span><span class="acc__count">5</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-26" hidden>
+<ul class="bullets">
+          <li><strong>Dados do motor:</strong> tipo, corrente nominal e demais características exigidas pelo fabricante.</li>
+          <li><strong>Modo de comando:</strong> sinais digitais, pulsos, referência analógica ou comunicação de rede, conforme o equipamento.</li>
+          <li><strong>Limites e referências:</strong> posição de origem, limites de movimento, velocidade e aceleração quando aplicável.</li>
+          <li><strong>Diagnóstico:</strong> estado habilitado, alarmes, falhas e códigos de erro.</li>
+          <li><strong>Comunicação:</strong> endereço e parâmetros de rede, se o modelo possuir essa função.</li>
+        </ul>
+  </div>
+</div>
+</div>
+
+        <aside class="note">
+          <p>Não existe uma sequência universal de configuração. Os parâmetros e a ordem de ajuste devem vir do manual do driver e das instruções do professor. Inserir valores genéricos sem conhecer o modelo pode causar comportamento incorreto ou movimento inesperado.</p>
+        </aside>
+
+        <p class="author author--break">Rede de comunicação industrial</p>
+        <h3 class="title title--sans">PROFINET</h3>
+        <p class="lead">PROFINET é um padrão aberto de comunicação industrial baseado em Ethernet, desenvolvido para conectar controladores, dispositivos de campo, acionamentos e outros equipamentos compatíveis. Pode atender desde troca de dados de processo até aplicações de controle de movimento, conforme os recursos e a classe de comunicação implementados.</p>
+
+        <div class="acc">
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-27"><span class="acc__title">Funcionamento geral</span><span class="acc__count">4</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-27" hidden>
+<ul class="bullets">
+          <li>O controlador e os dispositivos precisam ser compatíveis e estar configurados no projeto de automação.</li>
+          <li>A rede utiliza conexões Ethernet e parâmetros como endereço IP e nome de dispositivo, conforme o equipamento e a configuração.</li>
+          <li>O controlador troca dados de entrada e saída com os dispositivos configurados.</li>
+          <li>Recursos de diagnóstico podem ajudar a localizar falhas de conexão ou de configuração.</li>
+        </ul>
+  </div>
+</div>
+</div>
+
+        <aside class="note">
+          <p><strong>PROFINET e Ethernet não são sinônimos.</strong> Ethernet é a tecnologia de rede de base; PROFINET acrescenta mecanismos e regras específicos para comunicação industrial. Um switch Ethernet pode interligar equipamentos, mas a sua presença não prova que todos os dispositivos estejam comunicando por PROFINET.</p>
+        </aside>
+
+        <h3 class="subtitle">Relação com a bancada</h3>
+        <p class="lead lead--small">A imagem identifica um CLP Siemens S7-1200 e um switch Ethernet de cinco portas. A documentação Siemens descreve recursos PROFINET na família S7-1200. Ainda assim, para confirmar que a bancada utiliza PROFINET na prática, é necessário verificar o modelo exato da CPU, a configuração no TIA Portal, os dispositivos conectados e a topologia real.</p>
+      </div>
+    </section>
+
+    <!-- 07 · DESENHO E SIMULAÇÃO -->
+    <section class="article" id="cad-simu">
+      <div class="container">
+        <p class="eyebrow">Desenho e simulação <span class="eyebrow__sep">/</span> <strong>07</strong></p>
+
+        <div class="blocks" aria-hidden="true">
+          <span class="blocks__item" style="flex:2;background:var(--c-taupe)"></span>
+          <span class="blocks__item" style="flex:1;background:var(--c-sand)"></span>
+          <span class="blocks__item" style="flex:2.6;background:var(--c-sage)"></span>
+          <img class="blocks__photo" src="assets/img/07-cad-simu.jpg" alt="Bancada de Automação e Expedição — Esquema elétrico" loading="lazy" onerror="this.remove()">
+        </div>
+        <p class="caption">Esquema elétrico</p>
+
+        <p class="author">CAD Simu</p>
+        <h2 class="title title--sans">CAD Simu e projetos elétricos</h2>
+        <p class="lead">O CAD Simu é um programa utilizado em atividades didáticas para desenhar e simular circuitos elétricos. Um esquema elétrico representa componentes e suas conexões por meio de símbolos padronizados, ajudando a entender como o circuito deve funcionar antes da montagem.</p>
+
+        <h3 class="subtitle">Circuito de comando e circuito de potência</h3>
+        <ul class="facts" aria-label="Circuito de comando e circuito de potência">
+          <li><strong>Comando</strong> botões, contatos, sensores, bobinas e sinais de controle que definem a operação</li>
+          <li><strong>Potência</strong> conduz a energia necessária à carga, como um motor</li>
+        </ul>
+        <p class="lead lead--small lead--after">A separação funcional facilita a análise, mas os circuitos devem ser estudados como partes integradas do mesmo sistema.</p>
+
+        <h3 class="subtitle">Projeto elétrico documentado</h3>
+        <p class="lead lead--small">Um projeto elétrico bem documentado identifica componentes, bornes, condutores, alimentação, proteção e referências cruzadas quando aplicáveis. Na automação, os sinais do esquema podem ser relacionados às entradas e saídas do CLP.</p>
+
+        <aside class="note">
+          <p>O CAD Simu deve ser usado de acordo com os recursos da versão instalada; um circuito simulado não substitui verificação, montagem segura e testes supervisionados.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- REFERÊNCIAS TÉCNICAS -->
+    <section class="article" id="referencias">
+      <div class="container">
+        <p class="eyebrow">Fontes <span class="eyebrow__sep">/</span> <strong>08</strong></p>
+
+        <p class="author">Referências</p>
+        <h2 class="title title--sans">Referências técnicas</h2>
+        <p class="lead lead--small">As referências abaixo apoiam as definições técnicas deste documento. Para ligações, ajustes e parâmetros específicos, consulte sempre o manual exato do equipamento instalado.</p>
+
+        <div class="acc">
+<div class="acc__item">
+  <h4 class="acc__h"><button class="acc__btn" type="button" aria-expanded="true" aria-controls="acc-refs"><span class="acc__title">Fontes consultadas</span><span class="acc__count">8</span><span class="acc__icon" aria-hidden="true"></span></button></h4>
+  <div class="acc__panel" id="acc-refs">
+<ol class="refs">
+          <li>
+            <span class="refs__n">[1]</span>
+            <div>
+              <a href="https://www.isa.org/standards-and-publications/isa-standards/isa-95-standard" target="_blank" rel="noopener noreferrer">International Society of Automation (ISA) — ISA-95: Enterprise-Control System Integration</a>
+              <p>Integração entre funções de controle da fabricação e funções empresariais; modelo de níveis funcionais.</p>
+            </div>
+          </li>
+          <li>
+            <span class="refs__n">[2]</span>
+            <div>
+              <a href="https://docs.tia.siemens.cloud/r/simatic_s7_1200_manual_collection_enus_20/communication/profinet" target="_blank" rel="noopener noreferrer">Siemens — Manual técnico do controlador SIMATIC S7-1200</a>
+              <p>Documentação da família S7-1200, comunicação PROFINET e configuração de rede.</p>
+            </div>
+          </li>
+          <li>
+            <span class="refs__n">[3]</span>
+            <div>
+              <a href="https://www.siemens.com/pt-br/products/simatic-hmi/" target="_blank" rel="noopener noreferrer">Siemens — SIMATIC HMI</a>
+              <p>Referência do fabricante para interfaces de operação e visualização industrial.</p>
+            </div>
+          </li>
+          <li>
+            <span class="refs__n">[4]</span>
+            <div>
+              <a href="https://www.siemens.com/pt-br/products/simatic-hmi/wincc-unified/" target="_blank" rel="noopener noreferrer">Siemens — WinCC Unified</a>
+              <p>Exemplo de plataforma industrial com recursos de IHM e supervisão.</p>
+            </div>
+          </li>
+          <li>
+            <span class="refs__n">[5]</span>
+            <div>
+              <a href="https://www.ifm.com/us/en/us/overview/inductive/technology-overview/tech-overview" target="_blank" rel="noopener noreferrer">ifm — Tecnologia de sensores indutivos</a>
+              <p>Princípio e aplicações de sensores indutivos.</p>
+            </div>
+          </li>
+          <li>
+            <span class="refs__n">[6]</span>
+            <div>
+              <a href="https://www.ifm.com/us/en/us/learn-more/position/photoelectric-sensor/select-by-application" target="_blank" rel="noopener noreferrer">ifm — Sensores fotoelétricos</a>
+              <p>Princípios e aplicações de sensores fotoelétricos.</p>
+            </div>
+          </li>
+          <li>
+            <span class="refs__n">[7]</span>
+            <div>
+              <a href="https://www.ifm.com/us/en/us/overview/capacitive/technology-overview/technology-overview" target="_blank" rel="noopener noreferrer">ifm — Tecnologia de sensores capacitivos</a>
+              <p>Princípio e aplicações de sensores capacitivos.</p>
+            </div>
+          </li>
+          <li>
+            <span class="refs__n">[8]</span>
+            <div>
+              <a href="https://www.profibus.com/download/profinet-technology-and-application-system-description" target="_blank" rel="noopener noreferrer">PROFIBUS &amp; PROFINET International — PROFINET Technology</a>
+              <p>Documentação sobre comunicação industrial PROFINET.</p>
+            </div>
+          </li>
+        </ol>
+  </div>
+</div>
+</div>
+
+        <aside class="note">
+          <p><strong>Limite da pesquisa:</strong> o conteúdo explica os princípios técnicos e os componentes visíveis nas imagens. Não confirma modelo exato dos sensores, sequência de operação, parâmetros do driver nem topologia PROFINET; esses pontos dependem da documentação específica da bancada.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="site-footer__title">INDÚSTRIA 4.0</p>
+      <p class="site-footer__text">Pesquisa técnica · Bancada de Automação e Expedição.</p>
+      <nav class="site-footer__nav" aria-label="Rodapé">
+        <a href="#introducao">Introdução</a><span aria-hidden="true">·</span>
+        <a href="#piramide">Pirâmide</a><span aria-hidden="true">·</span>
+        <a href="#clp">CLP</a><span aria-hidden="true">·</span>
+        <a href="#equipamentos">Equipamentos</a><span aria-hidden="true">·</span>
+        <a href="#referencias">Referências</a>
+      </nav>
+      <p class="site-footer__legal">© Indústria 4.0 — Bancada de Expedição</p>
+    </div>
+  </footer>
+
+  <script src="js/menu.js"></script>
+  <script src="js/pyramid.js"></script>
+  <script src="js/accordion.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+FOTOS DA BANCADA
+================
+
+Coloque nesta pasta uma foto (JPG) para cada seção, com exatamente estes nomes:
+
+  01-introducao.jpg     Seção 01 · Introdução
+  02-piramide.jpg       Seção 02 · Pirâmide da Automação
+  03-clp.jpg            Seção 03 · CLP
+  04-ihm-scada.jpg      Seção 04 · IHM e SCADA
+  05-sensores.jpg       Seção 05 · Sensores e Atuadores
+  06-equipamentos.jpg   Seção 06 · Equipamentos e Redes
+  07-cad-simu.jpg       Seção 07 · Desenho e Simulação
+
+Se um arquivo não existir, o site mostra os blocos de cor no lugar.
+Tamanho sugerido: 1200 x 700 px, até ~300 KB cada.
