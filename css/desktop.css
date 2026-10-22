@@ -1,0 +1,78 @@
+/* ==========================================================================
+   LAYOUT DE COMPUTADOR  (telas com 1024px ou mais)
+   Carregado em index.html com media="(min-width: 1024px)", então no celular
+   e no tablet este arquivo não tem nenhum efeito.
+
+   O que muda no computador:
+   1. Cabeçalho em formato de jornal (nome grande centralizado + editorias)
+   2. Site mais largo (1072px em vez de 720px)
+   3. Capa: manchete grande + coluna "Em destaque" com miniaturas pequenas,
+      grades de 3 colunas separadas por filete vertical
+   4. Matéria: índice lateral fixo "Nesta matéria" + texto em coluna de leitura
+   ========================================================================== */
+
+:root { --gutter: 32px; --maxw: 1072px; }
+
+/* ---------- 1. Cabeçalho tipo jornal ---------- */
+.site-header { margin-top: 28px; border-top: 3px solid var(--ink); }
+.site-header__bar { justify-content: center; padding: 26px 0 20px; border-bottom: 0; }
+.brand { align-items: center; gap: 10px; text-align: center; }
+.brand__name { font: 700 40px/1 var(--font-serif); letter-spacing: .14em; }
+.brand__tag { font-size: 11px; letter-spacing: .22em; }
+.menu-toggle, .menu { display: none; }
+
+.topics { margin-top: 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--line); }
+.topics__list { justify-content: center; }
+.topics__list a { padding: .85rem .8rem .75rem; }
+.topics__list a:first-child { padding-left: .8rem; }
+
+/* ---------- 3. Capa ---------- */
+.news-strip { padding: 1rem 0; margin-bottom: 1.25rem; border-bottom: 1px solid var(--n-line); }
+.news-search { max-width: 560px; margin-bottom: 0; }
+.news-results { max-width: 760px; }
+
+.news-h { font-size: 1.4rem; }
+.news-top { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 3rem; }
+.news-home .news-top { margin-top: 1.75rem; }
+.news-rail { padding-left: 2rem; }
+.news-rail .news-h { margin-top: 0; }
+
+.story--hero .news-thumb { aspect-ratio: 16 / 9; }
+.story--hero .story__title { font-size: 2.75rem; line-height: 1.1; }
+.story--hero .story__dek { font-size: 1.125rem; }
+
+/* coluna "Em destaque": miniatura pequena ao lado do texto */
+.story--rail { grid-template-columns: minmax(0, 1fr) 4.75rem; gap: 1rem; }
+.story--rail .news-thumb { order: 0; aspect-ratio: 1 / 1; }
+.story--rail .news-thumb__num { font-size: 1.1rem; left: .35rem; bottom: .3rem; }
+
+/* grades de 3 colunas com filete vertical entre as matérias (estilo jornal) */
+.news-grid { column-gap: 3rem; row-gap: 2rem; }
+.news-grid > .story + .story::before {
+  content: ""; position: absolute; top: 0; bottom: 0; left: -1.5rem; width: 1px; background: var(--n-line);
+}
+.story--card .story__title { font-size: 1.3rem; }
+
+/* ---------- 4. Matéria: índice lateral + coluna de leitura ---------- */
+.news-hint .hint { max-width: 720px; margin-left: 288px; }
+.news-chips { display: none; }            /* o índice lateral substitui os "chips" */
+
+.article > .container:not(.has-toc) > * { max-width: 720px; }
+
+.article > .container.has-toc { position: relative; padding-left: calc(var(--gutter) + 288px); }
+.news-toc { display: block; position: absolute; top: 0; bottom: 0; left: var(--gutter); width: 240px; }
+.news-toc__inner { position: sticky; top: 1.5rem; padding-top: 18px; }
+.news-toc__label {
+  margin: 0 0 .75rem; padding-top: .6rem; border-top: 3px solid var(--ink);
+  font: 700 .6875rem/1 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft);
+}
+.news-toc__list { margin: 0; padding: 0; list-style: none; border-left: 1px solid var(--line); }
+.news-toc__list a {
+  display: block; margin-left: -1px; padding: .45rem 0 .45rem .85rem; border-left: 3px solid transparent;
+  font: 500 .8125rem/1.35 var(--font-sans); color: var(--ink-soft);
+}
+.news-toc__list a:hover { color: var(--accent); }
+.news-toc__list a.is-current { color: var(--ink); font-weight: 600; border-left-color: var(--accent); }
+.news-toc__list a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.news-foot .news-h { font-size: 1.4rem; }

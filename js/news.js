@@ -71,9 +71,7 @@
         img: photo ? photo.getAttribute('src') : '',
         blocks: [].map.call(sec.querySelectorAll('.blocks__item'), function (b) { return b.getAttribute('style') || ''; }),
         text: text,
-        ntext: norm(text),
-        minutes: Math.max(1, Math.round(text.split(' ').length / 200)),
-        topics: sec.querySelectorAll('h3, .acc__item, .pyramid__item').length
+        ntext: norm(text)
       };
     });
     var ids = data.map(function (d) { return d.id; });
@@ -88,9 +86,6 @@
       if (d.img) h += '<img src="' + esc(d.img) + '" alt="" loading="lazy" onerror="this.remove()">';
       return h + '</div>';
     }
-    function meta(d) {
-      return '<p class="story__meta"><span>' + d.minutes + ' min de leitura</span>' + (d.topics ? '<span>' + d.topics + ' tópicos</span>' : '') + '</p>';
-    }
     function title(d, tag, extra) {
       return '<' + tag + ' class="story__title"' + (d.font ? ' style="font-family:' + esc(d.font) + '"' : '') + '>' +
         '<a href="#' + d.id + '">' + esc(d.title) + '</a></' + tag + '>';
@@ -98,17 +93,17 @@
     function card(d) {
       return '<article class="story story--card"><div class="story__media">' + thumb(d) + '</div>' +
         '<p class="story__kicker">' + esc(d.kicker) + '</p>' + title(d, 'h3') +
-        '<p class="story__dek">' + esc(clip(d.lead, 150)) + '</p>' + meta(d) + '</article>';
+        '<p class="story__dek">' + esc(clip(d.lead, 150)) + '</p></article>';
     }
     function rail(d) {
       return '<article class="story story--rail"><div><p class="story__kicker">' + esc(d.kicker) + '</p>' +
-        title(d, 'h3') + meta(d) + '</div>' + thumb(d) + '</article>';
+        title(d, 'h3') + '</div>' + thumb(d) + '</article>';
     }
     function hero(d) {
       return '<article class="story story--hero"><div class="story__media">' + thumb(d) + '</div>' +
         '<p class="story__kicker">' + esc(d.kicker) + '</p>' + title(d, 'h2') +
         '<p class="story__dek">' + esc(d.lead) + '</p>' +
-        (d.lead2 ? '<p class="story__dek">' + esc(clip(d.lead2, 200)) + '</p>' : '') + meta(d) + '</article>';
+        (d.lead2 ? '<p class="story__dek">' + esc(clip(d.lead2, 200)) + '</p>' : '') + '</article>';
     }
     function pick(list) { return list.map(function (id) { return byId[id]; }).filter(Boolean); }
   
@@ -116,14 +111,11 @@
     function buildHome() {
       var date = new Date().toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
       date = date.charAt(0).toUpperCase() + date.slice(1);
-      var totalMin = data.reduce(function (a, d) { return a + d.minutes; }, 0);
-      var accCount = main.querySelectorAll('.acc__item').length;
-      var refCount = main.querySelectorAll('.refs li').length;
   
       var h = '<div class="container">' +
         '<h1 class="sr-only">Capa — Indústria 4.0: Bancada de Automação e Expedição</h1>' +
         '<div class="news-strip"><span class="news-strip__date">' + esc(date) + '</span>' +
-        '<span>Edição técnica · ' + data.length + ' matérias · ' + totalMin + ' min de leitura</span></div>' +
+        '<span>Edição técnica · ' + data.length + ' matérias</span></div>' +
         '<form class="news-search" role="search" id="news-form">' +
         '<label class="sr-only" for="news-q">Buscar nas matérias</label>' +
         '<input id="news-q" type="search" autocomplete="off" placeholder="Buscar nas matérias: CLP, PROFINET, sensor indutivo, vácuo…"></form>' +
@@ -139,19 +131,6 @@
   
       h += '<section class="news-block" aria-labelledby="h-projeto"><h2 class="news-h" id="h-projeto">Projeto e fontes</h2><div class="news-grid">' +
         pick(['integracao', 'cad-simu', 'referencias']).map(card).join('') + '</div></section>';
-  
-      h += '<div class="news-split"><section aria-labelledby="h-indice"><h2 class="news-h" id="h-indice">Índice técnico</h2><ol class="news-index">' +
-        data.map(function (d) {
-          return '<li><span class="news-index__n" aria-hidden="true">' + esc(d.num) + '</span>' +
-            '<div><p class="news-index__t"><a href="#' + d.id + '">' + esc(d.title) + '</a></p><span class="news-index__k">' + esc(d.kicker) + '</span></div>' +
-            '<span class="news-index__m">' + d.minutes + ' min</span></li>';
-        }).join('') + '</ol></section>' +
-        '<aside aria-labelledby="h-numeros"><h2 class="news-h" id="h-numeros">A pesquisa em números</h2><div class="news-facts"><dl>' +
-        '<div><dt>matérias</dt><dd>' + data.length + '</dd></div>' +
-        '<div><dt>min de leitura</dt><dd>' + totalMin + '</dd></div>' +
-        '<div><dt>tópicos expansíveis</dt><dd>' + accCount + '</dd></div>' +
-        '<div><dt>fontes citadas</dt><dd>' + refCount + '</dd></div>' +
-        '</dl></div></aside></div>';
   
       h += '</div></div>';
       home.innerHTML = h;
@@ -193,7 +172,7 @@
           res.map(function (r) {
             return '<li class="result"><article class="story"><p class="story__kicker">' + esc(r.d.kicker) + '</p>' +
               title(r.d, 'h3') + '<p class="story__dek">' + snippet(r.d, r.first, tokens) + '</p>' +
-              '<p class="story__meta"><span>' + r.score + ' ocorrências</span><span>' + r.d.minutes + ' min de leitura</span></p></article></li>';
+              '<p class="story__meta"><span>' + r.score + ' ocorrências</span></p></article></li>';
           }).join('') + '</ol>';
       }
       box.innerHTML = h;
@@ -232,11 +211,46 @@
             return '<a href="#' + hd.id + '" data-jump="' + hd.id + '">' + esc(txt(hd)) + '</a>';
           }).join('') + '</div>';
       }
+      buildToc(d, heads);
       bar.innerHTML = '<div class="container"><nav class="news-crumbs" aria-label="Trilha">' +
         '<a href="#capa">Capa</a><span aria-hidden="true">›</span><span>' + esc(d.kicker) + '</span>' +
         '<span aria-hidden="true">›</span><strong aria-current="page">' + esc(d.title) + '</strong></nav>' + chips + '</div>';
     }
   
+    /* Índice lateral "Nesta matéria" (só aparece no computador, via css/desktop.css) */
+    var spy = null;
+    function buildToc(d, heads) {
+      var box = d.sec.querySelector('.container');
+      if (!box) return;
+      var old = box.querySelector('.news-toc');
+      if (old) old.remove();
+      box.classList.remove('has-toc');
+      if (spy) { spy.disconnect(); spy = null; }
+      if (heads.length < 3) return;
+      heads.forEach(function (hd, k) { if (!hd.id) hd.id = d.id + '--' + (slug(txt(hd)) || k); });
+
+      var aside = document.createElement('aside');
+      aside.className = 'news-toc';
+      aside.setAttribute('aria-label', 'Nesta matéria');
+      aside.innerHTML = '<div class="news-toc__inner"><p class="news-toc__label">Nesta matéria</p><ol class="news-toc__list">' +
+        heads.map(function (hd) {
+          return '<li><a href="#' + hd.id + '" data-jump="' + hd.id + '">' + esc(txt(hd)) + '</a></li>';
+        }).join('') + '</ol></div>';
+      box.insertBefore(aside, box.firstChild);
+      box.classList.add('has-toc');
+
+      // destaca no índice o tópico que está na tela
+      if (!('IntersectionObserver' in window)) return;
+      var links = [].slice.call(aside.querySelectorAll('a'));
+      spy = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          links.forEach(function (a) { a.classList.toggle('is-current', a.getAttribute('data-jump') === en.target.id); });
+        });
+      }, { rootMargin: '0px 0px -70% 0px' });
+      heads.forEach(function (hd) { spy.observe(hd); });
+    }
+
     function buildFoot(d) {
       var prev = data[d.i - 1], next = data[d.i + 1];
       var more = [1, 2, 3].map(function (k) { return data[(d.i + k) % data.length]; })
@@ -269,8 +283,14 @@
       [].forEach.call(topics.querySelectorAll('a'), function (a) {
         var on = a.getAttribute('href') === '#' + id;
         a.classList.toggle('is-active', on);
-        if (on) { a.setAttribute('aria-current', 'page'); if (list) list.scrollLeft = a.offsetLeft - (list.clientWidth - a.offsetWidth) / 2; }
-        else a.removeAttribute('aria-current');
+        if (on) {
+          a.setAttribute('aria-current', 'page');
+          // só rola quando a barra realmente tem rolagem (celular); valor limitado entre 0 e o máximo
+          if (list && list.scrollWidth > list.clientWidth) {
+            var left = a.offsetLeft - (list.clientWidth - a.offsetWidth) / 2;
+            list.scrollLeft = Math.max(0, Math.min(left, list.scrollWidth - list.clientWidth));
+          }
+        } else a.removeAttribute('aria-current');
       });
     }
   

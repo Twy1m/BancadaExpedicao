@@ -1,3 +1,4 @@
+```vim help file
 FOTOS DA BANCADA
 ================
 
@@ -17,3 +18,6 @@ A seção 10 (Referências) não usa foto.
 
 Se um arquivo não existir, o site mostra os blocos de cor no lugar.
 Tamanho sugerido: 1200 x 700 px, até ~300 KB cada.
+
+```
+

@@ -98,3 +98,4 @@
     if (e.key === 'Escape' && input.value) clearSearch();
   });
 })();
+
