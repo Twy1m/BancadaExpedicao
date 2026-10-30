@@ -130,7 +130,7 @@
         pick(['sensores', 'equipamentos', 'catalogo']).map(card).join('') + '</div></section>';
   
       h += '<section class="news-block" aria-labelledby="h-projeto"><h2 class="news-h" id="h-projeto">Projeto e fontes</h2><div class="news-grid">' +
-        pick(['integracao', 'cad-simu', 'referencias']).map(card).join('') + '</div></section>';
+        pick(['integracao', 'cad-simu', 'referencias', 'contato']).map(card).join('') + '</div></section>';
   
       h += '</div></div>';
       home.innerHTML = h;

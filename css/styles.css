@@ -67,7 +67,7 @@ a { color: inherit; text-decoration: none; }
 
 .blocks { position: relative; display: flex; gap: 6px; height: 174px; }
 /* Foto da bancada por cima dos blocos; se o arquivo não existir, a foto some e os blocos aparecem */
-.blocks__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.blocks__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; }
 .blocks__item { display: block; }
 
 .caption {
@@ -342,3 +342,20 @@ a { color: inherit; text-decoration: none; }
   .lead { font-size: 20px; }
 }
 
+
+/* ===== Contato ===== */
+.contacts { display: grid; gap: 16px; margin-top: 24px; }
+.contact { border: 1px solid var(--line); padding: 18px; background: var(--c-sage); }
+.contact:nth-child(2) { background: var(--c-sand); }
+.contact:nth-child(3) { background: var(--c-taupe); }
+.contact__avatar {
+  width: 48px; height: 48px; border-radius: 50%; background: var(--accent); color: #fff;
+  display: grid; place-items: center; font: 600 15px/1 var(--font-sans); letter-spacing: .04em;
+}
+.contact__name { margin: 12px 0 10px; font: 600 18px/1.25 var(--font-sans); color: var(--ink); }
+.contact__list { list-style: none; margin: 0; padding: 0; }
+.contact__list li { padding: 8px 0; border-top: 1px solid rgba(0,0,0,.12); font-size: 14px; line-height: 1.4; color: var(--ink-soft); overflow-wrap: anywhere; }
+.contact__k { display: block; font: 500 10px/1.2 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 3px; }
+.contact__list a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.contact__soon { font-style: italic; opacity: .8; }
+@media (min-width: 768px) { .contacts { grid-template-columns: repeat(3, 1fr); } }
